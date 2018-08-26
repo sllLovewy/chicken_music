@@ -14,6 +14,12 @@ const app = express()
 var apiRoutes = express.Router()
 var axios = require('axios')
 
+/!*var qs=require('qs');
+var instance = axios.create({
+  headers: {'content-type': 'application/x-www-form-urlencoded'}
+});
+instance .post('url', qs.stringify(app)).then(res => res.data);*!/
+
 app.use('/api',apiRoutes)*/
 
 const HOST = process.env.HOST
@@ -48,11 +54,11 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
       poll: config.dev.poll,
-    }/*,
-    before(){
+    }
+   /* before(app){
       apiRoutes.get('/getDiscList', function (req, res) {
         var url = 'https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg'
-        axios.get(url, {
+        this.axios.get(url, {
           headers: {
             referer: 'https://c.y.qq.com/',
             host: 'c.y.qq.com'
