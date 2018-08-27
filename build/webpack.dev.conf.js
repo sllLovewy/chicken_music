@@ -15,11 +15,6 @@ const app = express()
 const apiRoutes = express.Router()
 app.use('/api',apiRoutes)
 
-/*var qs=require('qs');
-var instance = axios.create({
-  headers: {'content-type': 'application/x-www-form-urlencoded'}
-});
-instance .post('url', qs.stringify(app)).then(res => res.data);*/
 
 
 
@@ -40,6 +35,17 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         var url = 'https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg'
         this.axios.get(url, {
           headers: {
+            cookie:'pgv_pvi=3693020160; pgv_pvid=6737848341;' +
+            ' pt2gguin=o2579727714; RK=Oa6AldVx4c; ' +
+            'ptcz=0cbe50751056e16fd93ea6437f9f68aa9c490f25aa92760d9de2a7cfe66205ed; ' +
+            'tvfe_boss_uuid=f62e957b3845e7d5; ' +
+            'o_cookie=2579727714; ts_uid=3473788360; ' +
+            'eas_sid=71y5A3H2A3Z3V8a7k6E67402E4;' +
+            ' luin=o2579727714;' +
+            ' lskey=00010000c50061e085150434de250a1d2d13e72c60e4b7f4bba36ccbd565c0da25226ae25f09f2c001c411f3;' +
+            ' ptui_loginuin=2579727714; yq_index=0; pgv_si=s3060513792; pgv_info=ssid=s4787890015;' +
+            ' yqq_stat=0; ts_refer=www.baidu.com/link;' +
+            ' ts_last=y.qq.com/portal/playlist.html',
             referer: 'https://c.y.qq.com/',
             host: 'c.y.qq.com'
           },
