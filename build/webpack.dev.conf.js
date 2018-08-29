@@ -33,7 +33,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     before(app){
       app.get('/getDiscList', function (req, res) {
         var url = 'https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg'
-        this.axios.get(url, {
+        axios.get(url, {
           headers: {
             cookie:'pgv_pvi=3693020160; pgv_pvid=6737848341;' +
             ' pt2gguin=o2579727714; RK=Oa6AldVx4c; ' +
@@ -51,7 +51,16 @@ const devWebpackConfig = merge(baseWebpackConfig, {
           },
           params: req.query
         }).then((response) => {
-          res.json(response.data)
+          /*res.json(response.data)*/
+          var ret = response.data
+          if(typeof(ret) === 'string') {
+            var reg = /^\w+\(({[^()]+})\)$/
+            var matches = ret.match(reg)
+            if (matches) {
+              ret = JSON.parse(matches[1])
+            }
+          }
+          res.json(ret)
       }).catch((e) => {
           console.log(e)
       })

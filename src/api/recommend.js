@@ -30,6 +30,10 @@ export function getDiscList() {
     rnd:Math.random(),
 
   })
-  return jsonp(url, data, options)
+  return axios.get('/api/getDiscList', {
+    params: data
+  }).then((res) => {
+    return Promise.resolve(res.data)
+  })
 }
 
